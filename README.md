@@ -1,2 +1,1 @@
-# django-orm-watching-storage-master
- 
+# Пульт Охраны банка
