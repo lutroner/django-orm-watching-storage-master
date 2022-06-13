@@ -6,7 +6,6 @@ from django.shortcuts import render
 def passcard_info_view(request, passcode):
     passcard = Passcard.objects.get(passcode=passcode)
     visits = Visit.objects.filter(passcard=passcard)
-    # print(visits)
     this_passcard_visits = []
     for visit in visits:
         this_passcard_visit = {
