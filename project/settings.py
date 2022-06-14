@@ -1,13 +1,16 @@
 import os
+from dotenv import load_dotenv
+
+load_dotenv()
 
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'HOST': 'checkpoint.devman.org',
-        'PORT': '5434',
-        'NAME': 'checkpoint',
-        'USER': 'guard',
-        'PASSWORD': 'osim5',
+        'HOST': f'{os.getenv("DB_HOST")}',
+        'PORT': f'{os.getenv("DB_PORT")}',
+        'NAME': f'{os.getenv("DB_NAME")}',
+        'USER': f'{os.getenv("DB_USER")}',
+        'PASSWORD': f'{os.getenv("DB_PASSWORD")}'
     }
 }
 
@@ -21,7 +24,6 @@ ROOT_URLCONF = 'project.urls'
 
 ALLOWED_HOSTS = ['*']
 
-
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 TEMPLATES = [
     {
@@ -30,7 +32,6 @@ TEMPLATES = [
         'APP_DIRS': True,
     },
 ]
-
 
 USE_L10N = True
 
